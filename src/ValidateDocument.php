@@ -39,7 +39,7 @@ class ValidateDocument
     protected function isPassport(): bool
     {
         if ($this->rows == 2 && $this->firstCharacter == 'P' && $this->characterCountOfRow == 44) {
-            $this->documentType = DocumentType::PASSPORT;
+            $this->documentType = 'PASSPORT';
 
             return true;
         }
@@ -54,7 +54,7 @@ class ValidateDocument
     protected function isVisa(): bool
     {
         if ($this->rows == 2 && $this->firstCharacter == 'V' && in_array($this->characterCountOfRow, [44, 36])) {
-            $this->documentType = DocumentType::VISA;
+            $this->documentType = 'VISA';
 
             return true;
         }
@@ -69,7 +69,7 @@ class ValidateDocument
     protected function isTravelDocument1(): bool
     {
         if ($this->rows == 3 && in_array($this->firstCharacter, ["I", "A", "C"]) && $this->characterCountOfRow == 30) {
-            $this->documentType = DocumentType::TRAVEL_DOCUMENT_1;
+            $this->documentType = 'TRAVEL_DOCUMENT1';
 
             return true;
         }
@@ -84,7 +84,7 @@ class ValidateDocument
     protected function isTravelDocument2(): bool
     {
         if ($this->rows == 2 && in_array($this->firstCharacter, ["I", "P", "A", "C"]) && $this->characterCountOfRow == 36) {
-            $this->documentType = DocumentType::TRAVEL_DOCUMENT_2;
+            $this->documentType = 'TRAVEL_DOCUMENT2';
 
             return true;
         }
@@ -106,7 +106,7 @@ class ValidateDocument
     /**
      * Validate Machine Readable Zone from Document
      */
-    public function validate(): mixed
+    public function validate()
     {
         $this->setProperties();
 

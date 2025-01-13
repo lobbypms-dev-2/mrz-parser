@@ -25,19 +25,19 @@ class MrzParser
     protected function setAdapter()
     {
         switch ($this->documentType) {
-            case DocumentType::PASSPORT:
+            case 'PASSPORT':
                 $this->adapter = new PassportMrzParser();
 
                 break;
-            case DocumentType::VISA:
+            case 'VISA':
                 $this->adapter = new VisaMrzParser();
 
                 break;
-            case DocumentType::TRAVEL_DOCUMENT_1:
+            case 'TRAVEL_DOCUMENT1':
                 $this->adapter = new TravelDocument1MrzParser();
 
                 break;
-            case DocumentType::TRAVEL_DOCUMENT_2:
+            case 'TRAVEL_DOCUMENT2':
                 $this->adapter = new TravelDocument2MrzParser();
 
                 break;
