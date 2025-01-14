@@ -167,7 +167,7 @@ class PassportMrzParser implements ParserInterface
     {
         $code = chop(substr($this->secondLine, 10, 3), "<");
 
-        return $this->mapCountry($code);
+        return $code; //$this->mapCountry($code);
     }
 
     /**
