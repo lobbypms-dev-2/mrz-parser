@@ -69,12 +69,16 @@ class TravelDocument2MrzParser implements ParserInterface
     {
         $firstTwoCharacter = substr($this->firstLine, 0, 2);
 
-        return match ($firstTwoCharacter) {
-            'AC' => 'Crew Member Certificates',
-            'I<' => 'National ID',
-            'IP' => 'Passport',
-            default => "Travel Document (TD2)"
-        };
+        switch ($firstTwoCharacter) {
+            case 'AC':
+            return 'Crew Member Certificates';
+            case 'I<':
+            return 'National ID';
+            case 'IP':
+            return 'Passport';
+            default:
+            return 'Travel Document (TD2)';
+        }
     }
 
     /**
